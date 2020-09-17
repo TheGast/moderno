@@ -2,6 +2,9 @@
 @import 'global';
 @import 'fonts';
 // start header
+.header{
+    background-color: #fff;
+}
 .header__top-inner {
     display: flex;
     justify-content: space-between;
@@ -75,10 +78,7 @@
       transform: translate(-50%, -50%);
       color: #a0a0a0;
       font-size: 14px;
-  }
-  &+.header__circle{
-      margin-left: 15px;
-  }  
+  } 
   span{
       position: absolute;
       width: 18px;
@@ -116,13 +116,13 @@
     }
 }
 .basket{
+    margin-right: 20px;
     span{        
         background-color: $green;
     }
 }
 
-.user{
-    margin-left: 20px;
+.user{    
     margin-right: 25px;
     padding-right: 20px;
     position: relative;
@@ -176,7 +176,12 @@
     font-size: 12px;
     }
 }
-.user__box{
+
+
+.user__box,
+.basket__box,
+.message__box,
+.notification__box{
     position: relative;
     margin-top: 40px;
     height: 90px;
@@ -188,6 +193,136 @@
             overflow: auto;
         }
     }
+}
+.circle__menu{
+    border-top: 1px solid #e0e0e0;    
+    position: absolute;
+    top: 62px;
+    right: 0;
+    height: 0;
+    overflow: hidden;    
+    z-index: 1;  
+}
+
+.circle__item{
+    background-color: #fff;
+    padding:  0 23px;
+    border: 0px solid #e0e0e0;
+    border-top: none;
+    display: flex;
+    align-items: center;
+    width: 269px;
+    position: relative;
+    transition: all .3s;
+    &::before{
+        position: absolute;
+        top: 27px;
+        right: 28px;
+        color: #b0bec5;
+    }
+    &.icons-color{
+        &::before{
+            position: absolute;
+            top: 27px;
+            right: 28px;
+            color: $tomato; 
+        }      
+    }
+}
+.basket__box,
+.message__box,
+.notification__box{
+    margin-top: 54px;
+    margin-left: 15px;   
+    &:hover{
+        .header__circle{
+            &::before{
+            color: $bg;
+            }
+        }
+        .circle__menu{
+            overflow: auto;
+            height: auto;                
+        }
+        .circle__item{
+            padding: 23px ;
+            border-width: 1px;            
+        }
+    }    
+}
+.circle__images{
+    margin-right: 15px;
+}
+.circle__info{
+    
+    &-name{
+        @include f500;
+        color: $bg;
+    }
+    &-thema{
+        color: $green;
+        font-size: 12px;
+    }
+    &-price{
+        @include f500;
+        font-size: 16px;
+        color: #000;
+    }
+    &-date{
+        font-size: 10px;
+        color: #707070;
+    }
+}
+.basket__summ{
+    padding: 16px 17px 12px;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    background-color: #fff;
+}
+.basket__summ-title{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 13px;
+    padding-right: 22px;
+    color: $bg;
+    margin-bottom: 15px;
+    @include f700;
+    font-size: 16px;
+}
+.basket__btn{
+    color: #fff;
+    @include f700;
+    font-size: 14px;
+    padding: 12px 5px;
+    background-color: $green;
+    text-align: center;
+    width: 100px;
+}
+.basket__btn-checkout{
+    width: 122px;
+    margin-left: 6px;
+    background-color: $red;
+}
+.notification__menu,
+.message__menu{
+    .circle__images{
+        margin-right: 20px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+    }
+    .circle__info{
+        line-height: 18px;
+    }
+}
+.notification__menu{
+    .circle__info-name{
+        color: $green;
+    }
+}
+.header__btn-menu,
+.menu__btn{
+    display: none;
 }
 
 
@@ -1081,3 +1216,13 @@ button.icon-unsorted{
 
   
 // end product-page
+
+
+
+
+
+
+
+
+
+@import 'media';
